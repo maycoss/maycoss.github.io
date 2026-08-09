@@ -513,9 +513,19 @@
 
   .agent p { margin: 0; color: var(--muted-foreground); font-size: 14px; }
 
+  .agent .stack {
+    margin: auto 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    text-align: left;
+  }
+
   .agent .link {
-    margin-top: auto;
-    padding-top: 6px;
+    padding-top: 2px;
     font-size: 12.5px;
     letter-spacing: 0.04em;
     color: var(--accent-tertiary);
@@ -915,7 +925,7 @@
       <span class="line" aria-hidden="true"></span>
       <span class="stat">atendimento 24h</span>
     </div>
-    <p class="sec-note just">Cada uma conhece a sua operação e responde com número conferido, não com estimativa: a disponibilidade, o preço e o estoque saem do sistema antes da conversa começar. Nenhuma delas inventa valor, e todas passam a bola para uma pessoa quando o assunto sai do script.</p>
+    <p class="sec-note just">Cada uma conhece a sua operação e responde com número conferido, não com estimativa: a disponibilidade, o preço e o estoque saem do sistema antes da conversa começar. Nenhuma delas inventa valor, e todas passam a bola para uma pessoa quando o assunto sai do script. Três atendem dentro do próprio site, em PHP rodando no servidor; a Estela atende no WhatsApp, pela API oficial da Meta — e nenhuma delas depende de plataforma de terceiros para funcionar.</p>
 
     <div class="agents">
 
@@ -929,6 +939,7 @@
             </div>
           </div>
           <p class="just">Vê a vaga real de cada porta, monta o orçamento noite a noite — já com reajuste de evento e com a regra de mensal, temporada e diária avulsa —, anota nome e WhatsApp de quem se interessou e avisa o anfitrião por e-mail. Tem um modo reservado em que o dono conversa com ela sem passar pelo texto de venda.</p>
+          <p class="stack">PHP no servidor · widget na própria página</p>
           <a class="link" href="https://casagalaxy.com.br/aurora">casagalaxy.com.br/aurora</a>
         </div>
       </div>
@@ -943,6 +954,7 @@
             </div>
           </div>
           <p class="just">A mesma cabeça da Aurora, no canal onde o hóspede já está. A diferença é que ela não espera: de hora em hora volta atrás de quem pediu orçamento e sumiu — e, antes de cobrar a pessoa, confere se a porta continua livre, para não oferecer o que já foi ocupado.</p>
+          <p class="stack">PHP no servidor · WhatsApp Cloud API</p>
           <a class="link" href="https://casagalaxy.com.br/estela">casagalaxy.com.br/estela</a>
         </div>
       </div>
@@ -957,6 +969,7 @@
             </div>
           </div>
           <p class="just">Atende como quem conhece o pátio: responde por modelo, ano, quilometragem e preço lendo o estoque que a loja já mantém, entende pedidos abertos ("tem picape até 150 mil?") e transfere para o WhatsApp do vendedor certo ou do financeiro. O contato de quem se interessou chega por e-mail, com o link pronto.</p>
+          <p class="stack">PHP no servidor · widget na própria página</p>
           <a class="link" href="https://carroraima.com.br/santos">carroraima.com.br/santos</a>
         </div>
       </div>
@@ -971,6 +984,7 @@
             </div>
           </div>
           <p class="just">Sabe os cursos, os preços e os pacotes que estão valendo hoje, reconhece o aluno que já está logado e resolve dúvida de matrícula na hora — inclusive dentro da página de recuperar senha, que é onde o aluno costuma travar. Negocia desconto de verdade, um degrau por vez, até um teto que ela não revela.</p>
+          <p class="stack">PHP no servidor · widget na própria página</p>
           <a class="link" href="https://batutacursos.com.br/sofia">batutacursos.com.br/sofia</a>
         </div>
       </div>
