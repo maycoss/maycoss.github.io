@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistemas em produção — Mayco Santos</title>
+<meta name="description" content="Mayco Santos, especialista em ferramentas web em Boa Vista (RR): 27 sistemas no ar e 4 atendentes virtuais em hospedagem, leilões, cursos e veículos.">
+<meta name="author" content="Mayco Santos">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sistemas em produção — Mayco Santos">
+<meta property="og:description" content="Vinte e sete sistemas no ar e quatro atendentes virtuais: hospedagem, leilões, cursos e veículos. Orçamento pelo WhatsApp (95) 99144-5588.">
+<meta property="og:url" content="https://maycoss.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%BE%3C/text%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; display: block; }
+</style>
+<style>
+  :root {
+    --paper:      #F1F0EA;
+    --paper-2:    #E9E7DF;
+    --ink:        #1B1A16;
+    --ink-2:      #57544C;
+    --ink-3:      #857F73;
+    --rule:       #D3D0C5;
+    --rule-soft:  #E0DDD3;
+    --stamp:      #4A3E9E;
+    --stamp-soft: #EDEAFA;
+    --live:       #2C6A4E;
+
+    --serif: Constantia, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: Consolas, "SF Mono", ui-monospace, Menlo, "DejaVu Sans Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #131310;
+      --paper-2:    #1C1B17;
+      --ink:        #EDEAE0;
+      --ink-2:      #A8A296;
+      --ink-3:      #7C776C;
+      --rule:       #33312A;
+      --rule-soft:  #26241F;
+      --stamp:      #A79BF5;
+      --stamp-soft: #221E3C;
+      --live:       #6FBF95;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #131310;
+    --paper-2:    #1C1B17;
+    --ink:        #EDEAE0;
+    --ink-2:      #A8A296;
+    --ink-3:      #7C776C;
+    --rule:       #33312A;
+    --rule-soft:  #26241F;
+    --stamp:      #A79BF5;
+    --stamp-soft: #221E3C;
+    --live:       #6FBF95;
+  }
+
+  :root[data-theme="light"] {
+    --paper:      #F1F0EA;
+    --paper-2:    #E9E7DF;
+    --ink:        #1B1A16;
+    --ink-2:      #57544C;
+    --ink-3:      #857F73;
+    --rule:       #D3D0C5;
+    --rule-soft:  #E0DDD3;
+    --stamp:      #4A3E9E;
+    --stamp-soft: #EDEAFA;
+    --live:       #2C6A4E;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+
+  /* ---------- cabeçalho ---------- */
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 72px 0 0;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 18px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 12ch;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--stamp);
+  }
+
+  .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    border: 2px solid var(--stamp);
+    border-radius: 2px;
+    padding: 10px 14px 8px;
+    text-align: center;
+    line-height: 1.5;
+    transform: rotate(-4deg);
+    box-shadow: 0 0 0 1px var(--paper), 0 0 0 3px var(--stamp);
+    flex: none;
+    margin-bottom: 6px;
+  }
+
+  .stamp b {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+  }
+
+  .lede {
+    margin: 40px 0 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px 48px;
+    max-width: 860px;
+  }
+
+  .lede p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 46ch;
+  }
+
+  .lede p:first-child {
+    color: var(--ink);
+    font-size: 20px;
+  }
+
+  .meta {
+    margin: 48px 0 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .meta div {
+    padding: 18px 20px 16px 0;
+    border-left: 1px solid var(--rule-soft);
+    padding-left: 20px;
+  }
+
+  .meta div:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .meta dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 6px;
+  }
+
+  .meta dd {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .meta dd small {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-2);
+    display: block;
+    margin-top: 7px;
+    line-height: 1.4;
+  }
+
+  /* ---------- seções ---------- */
+
+  section {
+    margin-top: 92px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+  }
+
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .section-head span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .section-note {
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 20px 0 0;
+  }
+
+  /* ---------- atendentes ---------- */
+
+  .agents {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .agent {
+    background: var(--paper);
+    padding: 26px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .agent-name {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .agent-name h3 {
+    font-family: var(--serif);
+    font-size: 27px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .agent-name span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .agent p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+
+  .agent a {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--stamp);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--stamp) 35%, transparent);
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 6px;
+    word-break: break-all;
+  }
+
+  .agent a:hover,
+  .agent a:focus-visible {
+    background: var(--stamp-soft);
+    border-bottom-color: var(--stamp);
+  }
+
+  /* ---------- registro por operação ---------- */
+
+  .op {
+    display: grid;
+    grid-template-columns: minmax(0, 27%) minmax(0, 73%);
+    gap: 0 48px;
+    padding-top: 40px;
+  }
+
+  .op + .op {
+    margin-top: 8px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .op-id h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  .op-id .domain {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--stamp);
+    letter-spacing: 0.01em;
+    word-break: break-all;
+  }
+
+  .op-id p {
+    margin: 16px 0 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  .entries {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 0 24px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .entry:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .entry .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-top: 4px;
+  }
+
+  .entry h4 {
+    margin: 0 0 4px;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .entry p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.58;
+    max-width: 62ch;
+  }
+
+  /* ---------- prática ---------- */
+
+  .practice {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 48px;
+  }
+
+  .practice div {
+    border-top: 1px solid var(--rule-soft);
+    padding: 16px 0;
+  }
+
+  .practice h4 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .practice p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* ---------- chamada ---------- */
+
+  .cta {
+    margin-top: 92px;
+    border: 2px solid var(--ink);
+    background: var(--paper-2);
+    padding: 40px 44px 38px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px 56px;
+    align-items: center;
+  }
+
+  .cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.4vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+    max-width: 20ch;
+  }
+
+  .cta p {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 52ch;
+    font-size: 16.5px;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    min-width: 260px;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 22px;
+    border-radius: 2px;
+    border: 1.5px solid var(--stamp);
+    cursor: pointer;
+    line-height: 1.35;
+    transition: background-color .15s ease, color .15s ease;
+  }
+
+  .btn-primary {
+    background: var(--stamp);
+    color: var(--paper);
+    border-color: var(--stamp);
+  }
+
+  .btn-primary b {
+    display: block;
+    font-size: 17px;
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--stamp);
+    font-family: var(--mono);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    background: var(--stamp-soft);
+  }
+
+  /* ---------- rodapé ---------- */
+
+  footer {
+    margin-top: 88px;
+    border-top: 2px solid var(--ink);
+    padding-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  a:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--stamp);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 820px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px 72px; }
+    .top { padding-top: 48px; }
+    .lede { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .meta div { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule-soft); }
+    .meta div:nth-child(-n+2) { border-top: 0; }
+    .agents { grid-template-columns: minmax(0, 1fr); }
+    .op { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .op-id p { max-width: 60ch; }
+    .entries { margin-top: 4px; }
+    .entry { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .entry .tag { padding-top: 0; }
+    .practice { grid-template-columns: minmax(0, 1fr); }
+    .stamp { transform: rotate(-3deg); }
+    .cta { grid-template-columns: minmax(0, 1fr); padding: 30px 24px 28px; gap: 26px; }
+    .cta-actions { min-width: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  /* ---------- impressão / PDF ---------- */
+
+  @page {
+    margin: 16mm 14mm 14mm;
+  }
+
+  @media print {
+    :root,
+    :root[data-theme="dark"],
+    :root[data-theme="light"] {
+      --paper:      #FFFFFF;
+      --paper-2:    #FFFFFF;
+      --ink:        #14130F;
+      --ink-2:      #3E3B34;
+      --ink-3:      #6B675E;
+      --rule:       #B9B5A9;
+      --rule-soft:  #D6D2C7;
+      --stamp:      #3A2F86;
+      --stamp-soft: #FFFFFF;
+    }
+
+    body {
+      font-size: 10.5pt;
+      line-height: 1.45;
+    }
+
+    .wrap { max-width: none; padding: 0; }
+    .no-print { display: none !important; }
+
+    .top { padding-top: 0; }
+    h1 { font-size: 34pt; max-width: none; }
+    .lede { gap: 14px 32px; }
+    .lede p { font-size: 11pt; }
+    .lede p:first-child { font-size: 12pt; }
+
+    section { margin-top: 26pt; }
+    .op { padding-top: 18pt; }
+    .cta { margin-top: 24pt; padding: 18pt 20pt; border-width: 1.5pt; }
+
+    .entry,
+    .agent,
+    .practice div,
+    .op-id { break-inside: avoid; }
+
+    .section-head,
+    h1, h2, h3, h4 { break-after: avoid; }
+
+    .agents { border-color: var(--rule); }
+
+    a { color: var(--ink); }
+    .agent a { color: var(--ink-2); border-bottom: 0; }
+
+    .btn { display: none; }
+    .cta-actions::after {
+      content: "WhatsApp (95) 99144-5588";
+      font-family: var(--mono);
+      font-size: 12pt;
+      letter-spacing: 0.04em;
+      border: 1.5pt solid var(--ink);
+      padding: 10pt 14pt;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <p class="eyebrow">Mayco Santos · Especialista em ferramentas web · Boa Vista, Roraima</p>
+      <h1>Sistemas que <em>rodam sozinhos</em></h1>
+    </div>
+    <div class="stamp">
+      <b>Em produção</b>
+      Quatro domínios no ar
+    </div>
+  </header>
+
+  <div class="lede">
+    <p>Não são protótipos. Cada um destes sistemas atende gente de verdade todo dia — hóspede que precisa pagar a diária, arrematante que precisa da carta, aluno que precisa do certificado, cliente que quer saber se a picape ainda está no pátio.</p>
+    <p>Trabalho da mesma forma nos quatro: a operação continua onde ela já está — a planilha que a pessoa usa, o WhatsApp que ela responde — e o software entra por baixo, cuidando do que se repete. Preço, disponibilidade e valores são calculados no servidor. Cobrança, aviso e liberação acontecem sozinhos, no horário certo, e mandam recado quando alguma coisa falha.</p>
+  </div>
+
+  <dl class="meta">
+    <div>
+      <dt>Domínios</dt>
+      <dd>4<small>Hospedagem, leilões, cursos e veículos</small></dd>
+    </div>
+    <div>
+      <dt>Sistemas e módulos</dt>
+      <dd>27<small>No ar, em uso diário</small></dd>
+    </div>
+    <div>
+      <dt>Atendentes virtuais</dt>
+      <dd>4<small>Uma para cada operação, mais a do WhatsApp</small></dd>
+    </div>
+    <div>
+      <dt>Registro atualizado</dt>
+      <dd>08/08<small>Toda mudança fica escrita, com data e motivo</small></dd>
+    </div>
+  </dl>
+
+  <section>
+    <div class="section-head">
+      <h2>As quatro atendentes</h2>
+      <span>Atendimento 24 h</span>
+    </div>
+    <p class="section-note">Cada uma conhece a sua operação e responde com número conferido, não com estimativa: a disponibilidade, o preço e o estoque saem do sistema antes da conversa começar. Nenhuma delas inventa valor, e todas passam a bola para uma pessoa quando o assunto sai do script.</p>
+
+    <div class="agents">
+
+      <div class="agent">
+        <div class="agent-name">
+          <h3>Aurora</h3>
+          <span>Chat do site · Casa Galaxy</span>
+        </div>
+        <p>Vê a vaga real de cada porta, monta o orçamento noite a noite — já com reajuste de evento e com a regra de mensal, temporada e diária avulsa —, anota nome e WhatsApp de quem se interessou e avisa o anfitrião por e-mail. Tem um modo reservado em que o dono conversa com ela sem passar pelo texto de venda.</p>
+        <a href="https://casagalaxy.com.br/aurora">casagalaxy.com.br/aurora</a>
+      </div>
+
+      <div class="agent">
+        <div class="agent-name">
+          <h3>Estela</h3>
+          <span>WhatsApp · Casa Galaxy</span>
+        </div>
+        <p>A mesma cabeça da Aurora, no canal onde o hóspede já está. A diferença é que ela não espera: de hora em hora volta atrás de quem pediu orçamento e sumiu — e, antes de cobrar a pessoa, confere se a porta continua livre, para não oferecer o que já foi ocupado.</p>
+        <a href="https://casagalaxy.com.br/estela">casagalaxy.com.br/estela</a>
+      </div>
+
+      <div class="agent">
+        <div class="agent-name">
+          <h3>Santos</h3>
+          <span>Chat do site · Carroraima</span>
+        </div>
+        <p>Atende como quem conhece o pátio: responde por modelo, ano, quilometragem e preço lendo o estoque que a loja já mantém, entende pedidos abertos ("tem picape até 150 mil?") e transfere para o WhatsApp do vendedor certo ou do financeiro. O contato de quem se interessou chega por e-mail, com o link pronto.</p>
+        <a href="https://carroraima.com.br/santos">carroraima.com.br/santos</a>
+      </div>
+
+      <div class="agent">
+        <div class="agent-name">
+          <h3>Sofia</h3>
+          <span>Chat do site · Batuta Cursos</span>
+        </div>
+        <p>Sabe os cursos, os preços e os pacotes que estão valendo hoje, reconhece o aluno que já está logado e resolve dúvida de matrícula na hora — inclusive dentro da página de recuperar senha, que é onde o aluno costuma travar. Negocia desconto de verdade, um degrau por vez, até um teto que ela não revela.</p>
+        <a href="https://batutacursos.com.br/sofia">batutacursos.com.br/sofia</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Os sistemas, por operação</h2>
+      <span>Registro</span>
+    </div>
+
+    <div class="op">
+      <div class="op-id">
+        <h3>Casa&nbsp;Galaxy</h3>
+        <div class="domain">casagalaxy.com.br</div>
+        <p>Hospedagem com doze portas em Boa Vista. É a operação mais completa: do site que o hóspede vê até a tomada da lavanderia que liga sozinha depois do pagamento.</p>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <div class="tag">Site</div>
+          <div>
+            <h4>Vitrine em três idiomas, com página própria de cada porta</h4>
+            <p>Português, inglês e espanhol. A disponibilidade que aparece ali é a de verdade: cruza as reservas dos canais com as estadias avulsas cobradas pelo próprio sistema, então porta ocupada nunca aparece livre.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Painel</div>
+          <div>
+            <h4>Um painel só, com a casa inteira dentro</h4>
+            <p>É a tela que o anfitrião abre de manhã, e ela responde o dia todo sem ele precisar sair dali: quem entra e quem sai, o mapa das doze portas com o preço em que cada uma está, quanto entrou no mês, de onde vêm os viajantes, a limpeza dos próximos quatro dias — com o cronograma pronto para mandar à faxineira no WhatsApp — e o quanto a lavanderia rendeu no ano. Cada hóspede na lista tem o botão de WhatsApp do lado.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Painel</div>
+          <div>
+            <h4>E, do mesmo lugar, o acesso a todo o resto</h4>
+            <p>Do painel saem os atalhos para os módulos que cuidam de cada parte — diárias, recibos, lavanderia e as conversas das duas atendentes — e também para tudo que o hóspede vê: a home nos três idiomas, o Wi-Fi, as regras da casa, a página do aluguel mensal e a conferência de recibo. Quem opera não precisa decorar endereço nenhum: entra em um lugar e chega em todos.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Hóspede</div>
+          <div>
+            <h4>Guia da casa, Wi-Fi e regras em página própria</h4>
+            <p>A senha do Wi-Fi, como usar a casa e o que é combinado ficam em páginas que o hóspede abre no celular a qualquer hora. Poupa a pergunta repetida — e, quando ela vem mesmo assim, é só mandar o link.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Precificação</div>
+          <div>
+            <h4>O preço acompanha a ocupação</h4>
+            <p>Quanto menos porta livre, mais firme fica a diária; casa vazia, o preço cede. Mensalista fica de fora do reajuste, por contrato. O painel mostra em que patamar está o cálculo, para o dono conferir antes de confiar.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Cobrança</div>
+          <div>
+            <h4>Diárias avulsas com página do hóspede</h4>
+            <p>Cada estadia tem um link só dela: o hóspede vê as noites, quanto já pagou, quanto falta, e paga por PIX a noite ou o valor que quiser. Crédito, desconto e recebimento em dinheiro entram pelo painel; a cobrança e o recibo saem por e-mail em um botão.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Documento</div>
+          <div>
+            <h4>Recibo verificável — o papel virou ponteiro</h4>
+            <p>Cada recibo sai com um código curto e um QR Code; quem conferir vê os dados <em>como ficaram gravados na emissão</em>. Se o papel divergir da página, o papel foi alterado. Recibo emitido não se edita: cancela e reemite, e a via antiga descobre que existe uma nova. O gerador de QR Code foi escrito do zero, sem depender de biblioteca de terceiros.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Automação</div>
+          <div>
+            <h4>Lavanderia que liga sozinha</h4>
+            <p>O hóspede paga, a tomada da máquina libera, e ela desliga no fim do tempo de lavagem sem ninguém precisar lembrar. O valor e a duração se ajustam pelo painel, e o anfitrião pode dar uma lavagem de brinde por voucher.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Automação</div>
+          <div>
+            <h4>Rotinas em cima da planilha que já existia</h4>
+            <p>Lembrete da faxineira no dia da limpeza, atualização das avaliações no site, espelho das diárias nos indicadores e o mapa de origem dos viajantes. A planilha continua sendo da dona da operação — o sistema apenas lê e escreve nela.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="op">
+      <div class="op-id">
+        <h3>Mayco&nbsp;Santos Leiloeiro</h3>
+        <div class="domain">maycosantos.lel.br</div>
+        <p>Plataforma completa de leilão eletrônico — do cadastro do lote ao envio pelos Correios, com a papelada que a lei exige.</p>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <div class="tag">Pregão</div>
+          <div>
+            <h4>Lances com anti-sniper e encerramento automático</h4>
+            <p>Lance nos minutos finais estica o cronômetro, para ninguém vencer no relógio. O leilão encerra sozinho, avisa vencedor e perdedores por e-mail e libera o pagamento — sem depender de alguém estar na tela naquele instante.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Pagamento</div>
+          <div>
+            <h4>Forma de pagamento escolhida por leilão</h4>
+            <p>Cartão e PIX pelo Mercado Pago, link de pagamento ou depósito conforme o edital. A comissão entra no total que o arrematante vê e paga, e a confirmação chega sozinha ao sistema — sem conferência manual e sem creditar duas vezes o mesmo pagamento.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Documento</div>
+          <div>
+            <h4>Carta de arrematação conferível pelo QR</h4>
+            <p>O documento sai com QR Code e código que qualquer interessado pode verificar na página pública — quem recebe o bem consegue provar que a carta é aquela mesma.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Expedição</div>
+          <div>
+            <h4>Etiquetas dos Correios e declaração de conteúdo</h4>
+            <p>A etiqueta sai no padrão dos Correios direto do sistema, com a declaração de conteúdo — obrigatória quando não há nota fiscal — já preenchida com os itens e valores do lote.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Estoque</div>
+          <div>
+            <h4>Lote com estoque se repõe sozinho</h4>
+            <p>Vendeu uma unidade de um lote com várias, o sistema abre o leilão seguinte na hora — lance inicial no valor da venda, cronômetro zerado — e ainda avisa a lista de interessados.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Correção</div>
+          <div>
+            <h4>Glosa: desfazer um arremate sem quebrar o histórico</h4>
+            <p>Arrematante que não paga, o leiloeiro desfaz em um clique: o lote reabre por novo período, o pagamento pendente é rejeitado e fica a opção de bloquear quem deu o calote.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Privacidade</div>
+          <div>
+            <h4>Histórico de lances sem expor o licitante</h4>
+            <p>O público vê a disputa — valores, horários, a sequência —, mas não o nome de quem lançou. Transparência do pregão sem entregar dado pessoal de ninguém.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Divulgação</div>
+          <div>
+            <h4>Lista de avisos com cancelamento em um clique</h4>
+            <p>Aviso de lote novo e de leilão encerrando em menos de 24 horas. Todo e-mail leva um link de descadastro que funciona de verdade, sem pedir login.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Monitoramento</div>
+          <div>
+            <h4>Vigia de editais de Roraima</h4>
+            <p>Um sistema à parte que procura, todo dia, editais e credenciamentos de leiloeiro no estado. A parte que importa: em vez de confiar em busca na web — que não enxerga portal feito em JavaScript nem diário municipal —, ele consulta direto as bases públicas oficiais de compras e de leilões da Receita. Achou de uma vez quatro editais que meses de busca convencional não tinham encontrado.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="op">
+      <div class="op-id">
+        <h3>Batuta&nbsp;Cursos</h3>
+        <div class="domain">batutacursos.com.br</div>
+        <p>Escola on-line de preparatórios para concurso. Venda, entrega do curso e relacionamento com o aluno no mesmo lugar.</p>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <div class="tag">Loja</div>
+          <div>
+            <h4>Catálogo, matrícula e área do aluno</h4>
+            <p>Cursos avulsos e pacotes por concurso, com a página de cada edital trazendo vagas, salário e prazos — que é o que faz a pessoa decidir. Compra, acesso e certificado no mesmo cadastro.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Pagamento</div>
+          <div>
+            <h4>Acesso liberado sozinho depois do pagamento</h4>
+            <p>A confirmação vem do gateway e o sistema libera o curso ou o pacote inteiro na hora, sem ninguém precisar conferir extrato. Cada confirmação é registrada, então uma repetida nunca libera duas vezes — e quando algo falha, o erro fica gravado com o motivo, em vez de sumir.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Promoção</div>
+          <div>
+            <h4>Cupons com painel próprio</h4>
+            <p>Cupom por curso, por pacote ou geral, com validade e limite de uso. O botão de copiar entrega o código já dentro da mensagem de divulgação, pronta para colar no grupo.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Relacionamento</div>
+          <div>
+            <h4>Centro de Comunicação</h4>
+            <p>Um lugar só para falar com os alunos: escolhe o segmento, usa um modelo pronto, marca a campanha e envia. Nasceu depois de um reenvio acidental feito por script solto — a partir dali, todo disparo passa por uma tela com prévia.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Atribuição</div>
+          <div>
+            <h4>De onde veio cada aluno</h4>
+            <p>A primeira origem da visita fica guardada com o cadastro, então dá para saber qual divulgação trouxe matrícula — e não só qual trouxe clique.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Rotina</div>
+          <div>
+            <h4>Certificado e felicitação de aniversário no automático</h4>
+            <p>Todo dia o sistema libera os certificados de quem concluiu e manda o e-mail de aniversário. As duas rotinas têm modo de ensaio: mostram o que <em>iriam</em> fazer antes de fazer.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Busca</div>
+          <div>
+            <h4>Endereços alinhados para o Google</h4>
+            <p>O mapa do site e os endereços declarados nas páginas passaram a apontar para o endereço final de cada página, em vez de para o que redireciona — que era o motivo de o Google reclamar de cobertura.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="op">
+      <div class="op-id">
+        <h3>Carroraima&nbsp;Veículos</h3>
+        <div class="domain">carroraima.com.br</div>
+        <p>Revenda de carros. Aqui a decisão de projeto foi manter tudo leve: quem cuida do estoque não é técnico, e não precisa ser.</p>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <div class="tag">Vitrine</div>
+          <div>
+            <h4>O site é a planilha</h4>
+            <p>Preço, quilometragem, opcionais e fotos vêm de uma planilha e de uma pasta na nuvem que a loja já usava. Mudou a planilha, mudou o site — sem banco de dados, sem painel para aprender, sem publicação para esperar.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="tag">Anúncio</div>
+          <div>
+            <h4>Catálogo do Google gerado da mesma fonte</h4>
+            <p>O arquivo que alimenta os anúncios de compras do Google sai da mesma planilha do site, então vitrine e anúncio nunca discordam sobre preço.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Como esses sistemas se sustentam</h2>
+      <span>Método</span>
+    </div>
+    <p class="section-note">Sistema que roda sozinho tem um risco próprio: quando falha, falha em silêncio. Boa parte do trabalho está em impedir isso.</p>
+
+    <div class="practice">
+      <div>
+        <h4>Um registro de mudanças por site</h4>
+        <p>Cada domínio tem o seu, escrito em português comum: o que mudou, por que mudou e o que ficou pendente. É o que permite ao dono entender o próprio sistema um ano depois, sem depender de mim.</p>
+      </div>
+      <div>
+        <h4>Nada vai ao ar sem conferir no ar</h4>
+        <p>Depois de publicar, o caminho é percorrido de verdade — a conversa, o pagamento, o e-mail, o arquivo protegido devolvendo acesso negado. Vários defeitos desta lista apareceram nessa conferência, não na reclamação do cliente.</p>
+      </div>
+      <div>
+        <h4>Toda rotina agendada tem ensaio e registro</h4>
+        <p>Antes de valer, ela mostra o que faria. Depois de valer, deixa log. Foi assim que se descobriu uma rotina que vinha falhando calada havia três semanas.</p>
+      </div>
+      <div>
+        <h4>Cálculo no servidor, nunca no navegador</h4>
+        <p>Preço, disponibilidade e saldo são decididos no servidor, e as chaves de acesso ficam lá também. O que chega ao navegador é o resultado — não a régua nem a chave.</p>
+      </div>
+      <div>
+        <h4>Backup diário, automático</h4>
+        <p>Todo dia o servidor inteiro é copiado para a nuvem, sem depender de alguém lembrar. Bancos de dados dos módulos têm cópia própria antes de cada mudança grande.</p>
+      </div>
+      <div>
+        <h4>Medir só depois do sim</h4>
+        <p>As estatísticas de visita só começam depois que a pessoa aceita no aviso de cookies, e as páginas com dado de gente identificada ficam de fora da medição por escolha, não por esquecimento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="orcamento">
+    <div>
+      <p class="eyebrow">Orçamento</p>
+      <h2>Sua operação tem alguma coisa feita na mão todo dia?</h2>
+      <p>Me chama no WhatsApp e conta o que é. Eu respondo o que dá para o sistema assumir, quanto tempo leva e quanto custa — antes de você decidir qualquer coisa.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="https://wa.me/5595991445588?text=Ol%C3%A1%2C%20Mayco.%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento.">
+        Falar no WhatsApp
+        <b>(95) 99144-5588</b>
+      </a>
+      <button class="btn btn-ghost no-print" type="button" id="baixar-pdf">Baixar esta página em PDF</button>
+    </div>
+  </section>
+
+  <footer>
+    <span>Mayco Santos · Especialista em ferramentas web · Boa Vista — RR</span>
+    <span>Registro fechado em 08/08/2026</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var b = document.getElementById('baixar-pdf');
+    if (b) {
+      b.addEventListener('click', function () { window.print(); });
+    }
+  })();
+</script>
+</body>
+</html>
