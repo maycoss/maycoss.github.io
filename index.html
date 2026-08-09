@@ -93,6 +93,21 @@
     padding: 0 28px 96px;
   }
 
+  /* Texto corrido justificado, com separação silábica para não abrir
+     rios de espaço em coluna estreita. */
+  .lede p,
+  .section-note,
+  .agent p,
+  .op-id p,
+  .entry p,
+  .practice p,
+  .cta p {
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
   /* ---------- cabeçalho ---------- */
 
   .top {
@@ -625,7 +640,7 @@
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" lang="pt-BR">
 
   <header class="top">
     <div>
