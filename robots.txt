@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maycoss.github.io/batuta/sitemap.xml
