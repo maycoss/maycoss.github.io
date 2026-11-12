@@ -1,12 +1,12 @@
 <?php
 /**
- * PATCH DE CONTRASTE -- carimbo "VENDIDO" ilegivel no tema claro.
+ * PATCH DE CONTRASTE -- carimbo "VENDIDO" ilegivel no SITE PRINCIPAL (tema papel).
  *
- * No tema claro o site troca --grad-ouro por um tom escuro (bom para texto em
- * degrade, ruim como FUNDO). O carimbo .rlg.vendido usa esse degrade de fundo
- * com texto escuro por cima -> escuro no escuro. Este patch acrescenta ao
- * assets/tema-claro.css uma regra que devolve o dourado claro ao carimbo,
- * so no tema claro. Nao mexe no tema escuro.
+ * No tema "papel" o papel.css faz --grad-ouro = linear-gradient(#000,#000),
+ * ou seja, PRETO. O carimbo .rlg.vendido usa esse "dourado" de fundo com texto
+ * escuro (#0A0C10) por cima -> preto no preto, invisivel. Este patch acrescenta
+ * ao assets/papel.css uma regra que poe o TEXTO BRANCO no carimbo (combina com
+ * o tema, que ja usa paineis pretos com texto branco). Nao mexe no tema escuro.
  *
  * Uso: abrir esta pagina logado como admin. Faz backup do CSS e aplica.
  * E idempotente: rodar de novo nao duplica. Depois, pode deletar este arquivo.
@@ -20,17 +20,14 @@ require_once $base . '/_base.php';
 requireAdmin();
 $usuario = usuarioLogado();
 
-$arquivo = $base . '/assets/tema-claro.css';
-$marcador = 'patch-contraste-vendido';
-$regra = "\n\n/* === {$marcador}: carimbo VENDIDO legivel no tema claro (12/11/2026) ===\n"
-       . "   No tema claro --grad-ouro fica escuro; como o carimbo usa esse degrade\n"
-       . "   de FUNDO com texto escuro, virava escuro-no-escuro. Volta ao dourado\n"
-       . "   claro, mantendo o texto escuro legivel. So afeta o tema claro. */\n"
-       . "html[data-theme=\"light\"] .rlg.vendido{\n"
-       . "  background:linear-gradient(to right,#F7931A,#FFD600) !important;\n"
-       . "  color:#0A0C10 !important;\n"
-       . "}\n"
-       . "html[data-theme=\"light\"] .rlg.vendido .rlg-valor{ border-color:#0A0C10 !important; }\n";
+$arquivo = $base . '/assets/papel.css';
+$marcador = 'patch-vendido-papel';
+$regra = "\n\n/* === {$marcador}: carimbo VENDIDO legivel no tema papel (12/11/2026) ===\n"
+       . "   No tema papel --grad-ouro vira preto; como o carimbo .rlg.vendido usa\n"
+       . "   esse fundo preto com texto escuro, ficava preto-no-preto. Texto e borda\n"
+       . "   do carimbo passam a branco. So afeta o site principal (html.papel). */\n"
+       . "html.papel .rlg.vendido{ color:#fff !important; }\n"
+       . "html.papel .rlg.vendido .rlg-valor{ border-color:#fff !important; }\n";
 
 $msg = '';
 $erro = '';
@@ -46,7 +43,7 @@ if (!is_file($arquivo)) {
     } elseif (@file_put_contents($arquivo, $regra, FILE_APPEND) === false) {
         $erro = 'Nao consegui gravar no CSS (permissao?). Backup criado, mas nada alterado.';
     } else {
-        $msg = '✅ Patch aplicado em assets/tema-claro.css. Backup salvo (tema-claro.css.bak-...). '
+        $msg = '✅ Patch aplicado em assets/papel.css. Backup salvo (papel.css.bak-...). '
              . 'Recarregue a pagina do lote (Ctrl+Shift+R) para ver o carimbo VENDIDO legivel.';
     }
 }
@@ -57,8 +54,8 @@ renderHeader($usuario);
 <div class="neo-container narrow">
   <h1 style="display:inline-block">🎨 PATCH: CARIMBO "VENDIDO"</h1>
   <p style="font-weight:700;margin-top:12px">
-    Deixa o carimbo <strong>VENDIDO</strong> legivel no <strong>tema claro</strong>
-    (fundo dourado claro, texto escuro). O tema escuro nao muda.
+    Deixa o carimbo <strong>VENDIDO</strong> legivel no site principal
+    (texto branco sobre o painel preto). O tema escuro nao muda.
   </p>
 
   <?php if ($erro): ?><div class="neo-alert err mt-24"><?= htmlspecialchars($erro) ?></div><?php endif; ?>
